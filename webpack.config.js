@@ -11,9 +11,18 @@ module.exports = {
     output: {
         filename: 'main.js'
     },
+    devServer: {
+        historyApiFallback: true,
+        static: './dist',
+        open: true,
+        hot: true,
+        port: 3001,
+        client: {logging: 'error'},
+    },
     plugins: [
         new MiniCssExtractPlugin(),
         new HtmlWebpackPlugin({
+            title: 'Development',
             template: './src/index.pug',
             filename: './index.html'
         }),
